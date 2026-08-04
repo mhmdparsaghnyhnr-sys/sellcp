@@ -1,1 +1,1 @@
-web: gunicorn cp_shop.wsgi:application
+web: python manage.py migrate && gunicorn cp_shop.wsgi:applicationgit add Procfile
