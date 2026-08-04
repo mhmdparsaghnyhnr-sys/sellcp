@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>سیپی رایگان کالاف دیوتی</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 20%, #3b0066 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #003b66 0%, transparent 30%),
+        #05000d;
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(
+        45deg,
+        #00ffff,
+        #ff00ff,
+        #7b00ff,
+        #00ff88
+    );
+    filter: blur(150px);
+    opacity: 0.18;
+    animation: moveGlow 8s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes moveGlow {
+    from {
+        transform: translate(-200px, -100px);
+    }
+    to {
+        transform: translate(200px, 100px);
+    }
+}
+
+.box {
+    position: relative;
+    z-index: 2;
+    width: 380px;
+    padding: 30px;
+    border-radius: 22px;
+    background: rgba(15, 10, 30, 0.95);
+
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 25px #ff00ff,
+        0 0 50px rgba(123, 0, 255, 0.5);
+
+    animation: boxGlow 4s infinite alternate;
+}
+
+@keyframes boxGlow {
+    0% {
+        box-shadow:
+            0 0 10px #00ffff,
+            0 0 25px #00ffff;
+    }
+
+    50% {
+        box-shadow:
+            0 0 10px #ff00ff,
+            0 0 30px #ff00ff;
+    }
+
+    100% {
+        box-shadow:
+            0 0 10px #7b00ff,
+            0 0 35px #7b00ff;
+    }
+}
+
+h2 {
+    font-size: 27px;
+    margin-bottom: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #00ffff,
+        #ff00ff,
+        #7b00ff,
+        #00ff88,
+        #ffff00
+    );
+
+    background-size: 300% 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: rainbow 4s ease infinite;
+
+    filter:
+        drop-shadow(0 0 5px #00ffff)
+        drop-shadow(0 0 15px #ff00ff);
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+input,
+select {
+    width: 90%;
+    padding: 13px;
+    margin: 8px;
+    border-radius: 10px;
+
+    background: #100b1d;
+    color: white;
+
+    border: 1px solid #00ffff;
+    outline: none;
+
+    box-shadow: 0 0 5px #00ffff;
+
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #ff00ff;
+
+    box-shadow:
+        0 0 8px #ff00ff,
+        0 0 18px #ff00ff;
+
+    transform: scale(1.03);
+}
+
+button {
+    width: 90%;
+    margin-top: 15px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        90deg,
+        #00ffff,
+        #7b00ff,
+        #ff00ff
+    );
+
+    background-size: 200% 200%;
+
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 25px #ff00ff;
+
+    transition: 0.3s;
+
+    animation: buttonRGB 3s infinite alternate;
+}
+
+@keyframes buttonRGB {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+button:hover {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 35px #ff00ff,
+        0 0 55px #7b00ff;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>سیپی رایگان کالاف دیوتی</h2>
+
+<form method="post">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit">ثبت سفارش</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
